@@ -92,10 +92,8 @@ window.addEventListener('scroll', () => {
     });
 });
 
-
-// ===== INTERSECTION OBSERVER SCROLL REVEAL =====
 const revealElements = document.querySelectorAll(
-  '.about, .mission, .team, .memories, .member, .memory-card'
+  '.about, .mission, .member, .memory-card'
 );
 
 const observerOptions = {
