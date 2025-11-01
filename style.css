@@ -142,13 +142,6 @@ body {
     .navbar a {
         font-size: 1.1rem; 
     }
-    
-    /* PERBAIKAN 2A: Memastikan kartu mentor responsif di tablet/HP lebar */
-    .team-mentor .member {
-        width: 90%; 
-        max-width: 360px; /* Mempertahankan batas maksimum */
-        margin: 0 auto; /* Memastikan kartu berada di tengah */
-    }
 }
 
 /* ===== HERO ===== */
@@ -354,7 +347,7 @@ body {
 .member {
   background: rgba(255,159,67,0.07);
   border: 1px solid rgba(255,159,67,0.25);
-  width: 230px; /* LEBAR TETAP ASLI */
+  width: 230px;
   padding: 20px;
   border-radius: 18px;
   transition: 0.35s;
@@ -532,11 +525,6 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     max-width: 900px;
   }
-  
-  /* PERBAIKAN 1: Memastikan elemen anggota (member) mengisi kolomnya secara penuh di tata letak 2 kolom (tablet/HP lebar) */
-  .member { 
-    width: 100%; 
-  }
 
   .glow-text {
     font-size: 3.2rem;
@@ -569,16 +557,14 @@ footer {
     gap: 18px;
   }
   
-  /* NEW: Override fixed width (230px) to be responsive on mobile */
   .member { 
     width: 100%; 
     max-width: 300px; 
   }
 
-  /* Perbaikan 2b: Hapus `.team-mentor .member` dari sini, atur di 768px */
-  /* .team-mentor .member {
+  .team-mentor .member {
     width: 90%;
-  } */
+  }
 
   .glow-text {
     font-size: 2.4rem;
@@ -598,6 +584,20 @@ footer {
 
   .memory-info p {
     font-size: 1rem;
+  }
+
+  /* ==================================================== */
+  /* ===== KODE PERBAIKAN FINAL DI SINI ===== */
+  /* ==================================================== */
+  
+  /* Selector ini akan menargetkan SEMUA gambar anggota 
+     (termasuk mentor) di dalam section .team saat mobile */
+  .team .member img {
+    width: 100% !important; 
+    height: 320px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important; 
   }
 }
 
