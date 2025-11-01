@@ -1,7 +1,25 @@
+// Deklarasi variabel yang diperlukan secara global untuk Hamburger Menu dan Smooth Scroll
+const menuToggle = document.getElementById('menu-toggle');
+const navLinksContainer = document.querySelector('.nav-links'); // Container menu di HP
+
+// ===== HAMBURGER MENU TOGGLE =====
+if (menuToggle && navLinksContainer) {
+  menuToggle.addEventListener('click', () => {
+    navLinksContainer.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+  });
+}
+
 // ===== SMOOTH SCROLL EFFECT & NAVBAR ACTIVE CLASS TOGGLE (ON CLICK) =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     e.preventDefault();
+    
+    // LOGIKA TAMBAHAN: Tutup menu saat link di-klik di HP
+    if (navLinksContainer && navLinksContainer.classList.contains('active')) {
+      navLinksContainer.classList.remove('active');
+      menuToggle.classList.remove('active');
+    }
     
     // --- 1. LOGIKA UNTUK MENGATUR CLASS ACTIVE SAAT DI-KLIK ---
     // Hapus kelas 'active' dari semua tautan
@@ -47,7 +65,8 @@ window.addEventListener('scroll', () => {
 
 // ===== SCROLL SPY NAVBAR ACTIVE (Logika untuk memindahkan status aktif saat scrolling) =====
 const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.navbar ul li a');
+// Variabel ini hanya untuk Scroll Spy, tidak bentrok dengan navLinksContainer
+const navLinks = document.querySelectorAll('.nav-links ul li a'); 
 
 window.addEventListener('scroll', () => {
     let current = 'home'; // Default ke 'home'
