@@ -190,6 +190,10 @@ body {
 
 /* Responsive */
 @media (max-width: 900px) {
+  .about-section { /* NEW: Adjust padding on smaller screens */
+    padding: 60px 5%;
+  }
+  
   .about-container {
     flex-direction: column;
     text-align: center;
@@ -463,10 +467,22 @@ footer {
 }
 
 @media (max-width: 560px) {
+  .team { /* NEW: Adjust padding for small screens */
+    padding: 20px 5% 80px 5%;
+  }
+  
   .team-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
+    width: 90%; /* Added to ensure better centering and screen usage */
+    margin: 0 auto; /* Added for explicit centering */
     gap: 18px;
+  }
+  
+  /* NEW: Override fixed width (230px) to be responsive on mobile */
+  .member { 
+    width: 100%; 
+    max-width: 300px; 
   }
 
   .team-mentor .member {
@@ -475,6 +491,14 @@ footer {
 
   .glow-text {
     font-size: 2.4rem;
+  }
+  
+  .memories {
+    padding: 20px 5% 80px 5%;
+  }
+
+  .memory-card { /* NEW: Ensure memory cards also use available width */
+    max-width: 100%;
   }
 
   .memory-info h3 {
@@ -506,5 +530,3 @@ footer {
   transform: translateX(0);
   opacity: 1;
 }
-
-
