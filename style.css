@@ -86,7 +86,6 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* CSS untuk kondisi menu terbuka (rotasi X) */
 .menu-toggle.active .bar:nth-child(2) {
     opacity: 0;
 }
@@ -121,7 +120,6 @@ body {
         border-top: 1px solid rgba(255, 136, 0, 0.1);
     }
     
-    /* Tampilkan menu saat tombol di-klik */
     .nav-links.active {
         height: 240px; 
     }
@@ -268,7 +266,7 @@ body {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .about-section { /* NEW: Adjust padding on smaller screens */
+  .about-section { 
     padding: 60px 5%;
   }
   
@@ -333,7 +331,6 @@ body {
   box-shadow: 0 0 25px rgba(255, 159, 67, 0.35);
 }
 
-/* grid tengah & rata */
 .team-grid {
   width: 100%;
   max-width: 1180px;
@@ -431,7 +428,6 @@ body {
   text-shadow: 0 0 12px var(--orange-strong);
 }
 
-
 /* ===== POPUP MODAL ===== */
 .popup-overlay {
   position: fixed;
@@ -481,7 +477,6 @@ body {
   margin-right: auto;
 }
 
-
 .popup-content h3 {
   color: var(--orange);
   font-size: 1.8rem;
@@ -507,7 +502,6 @@ body {
 .close-btn:hover {
   color: #fff;
 }
-
 
 /* ===== FOOTER ===== */
 footer {
@@ -545,15 +539,15 @@ footer {
 }
 
 @media (max-width: 560px) {
-  .team { /* NEW: Adjust padding for small screens */
+  .team { 
     padding: 20px 5% 80px 5%;
   }
   
   .team-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
-    width: 90%; /* Added to ensure better centering and screen usage */
-    margin: 0 auto; /* Added for explicit centering */
+    width: 90%;
+    margin: 0 auto;
     gap: 18px;
   }
   
@@ -574,7 +568,7 @@ footer {
     padding: 20px 5% 80px 5%;
   }
 
-  .memory-card { /* NEW: Ensure memory cards also use available width */
+  .memory-card { 
     max-width: 100%;
   }
 
@@ -585,13 +579,7 @@ footer {
   .memory-info p {
     font-size: 1rem;
   }
-
-  /* ==================================================== */
-  /* ===== KODE PERBAIKAN FINAL DI SINI ===== */
-  /* ==================================================== */
   
-  /* Selector ini akan menargetkan SEMUA gambar anggota 
-     (termasuk mentor) di dalam section .team saat mobile */
   .team .member img {
     width: 100% !important; 
     height: 320px !important;
@@ -613,7 +601,6 @@ footer {
   transform: translateY(0);
 }
 
-/* Variasi arah*/
 .from-left.hidden { transform: translateX(-50px); }
 .from-right.hidden { transform: translateX(50px); }
 .from-left.visible,

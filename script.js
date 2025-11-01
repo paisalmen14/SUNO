@@ -1,8 +1,6 @@
-// Deklarasi variabel yang diperlukan secara global untuk Hamburger Menu dan Smooth Scroll
 const menuToggle = document.getElementById('menu-toggle');
-const navLinksContainer = document.querySelector('.nav-links'); // Container menu di HP
+const navLinksContainer = document.querySelector('.nav-links'); 
 
-// ===== HAMBURGER MENU TOGGLE =====
 if (menuToggle && navLinksContainer) {
   menuToggle.addEventListener('click', () => {
     navLinksContainer.classList.toggle('active');
@@ -10,28 +8,21 @@ if (menuToggle && navLinksContainer) {
   });
 }
 
-// ===== SMOOTH SCROLL EFFECT & NAVBAR ACTIVE CLASS TOGGLE (ON CLICK) =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     e.preventDefault();
     
-    // LOGIKA TAMBAHAN: Tutup menu saat link di-klik di HP
     if (navLinksContainer && navLinksContainer.classList.contains('active')) {
       navLinksContainer.classList.remove('active');
       menuToggle.classList.remove('active');
     }
     
-    // --- 1. LOGIKA UNTUK MENGATUR CLASS ACTIVE SAAT DI-KLIK ---
-    // Hapus kelas 'active' dari semua tautan
     document.querySelectorAll('.navbar a').forEach(link => {
       link.classList.remove('active');
     });
 
-    // Tambahkan kelas 'active' ke tautan yang baru saja diklik
     anchor.classList.add('active');
-    // ----------------------------------------------------------
 
-    // Lakukan smooth scroll
     document.querySelector(anchor.getAttribute('href')).scrollIntoView({
       behavior: 'smooth',
       block: 'start'
@@ -40,7 +31,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-// ===== HERO FADE-IN & PARALLAX =====
 window.addEventListener('load', () => {
   const heroText = document.querySelector('.hero-content');
   if (heroText) {
@@ -63,29 +53,23 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== SCROLL SPY NAVBAR ACTIVE (Logika untuk memindahkan status aktif saat scrolling) =====
 const sections = document.querySelectorAll('section');
-// Variabel ini hanya untuk Scroll Spy, tidak bentrok dengan navLinksContainer
 const navLinks = document.querySelectorAll('.nav-links ul li a'); 
 
 window.addEventListener('scroll', () => {
-    let current = 'home'; // Default ke 'home'
+    let current = 'home'; 
 
     sections.forEach(section => {
-        // Dapatkan posisi vertikal (top) dari setiap section
         const sectionTop = section.offsetTop;
         const sectionId = section.getAttribute('id');
         
-        // Cek jika posisi scroll sudah melewati section, dikurangi offset 100px (tinggi navbar + margin)
         if (window.scrollY >= sectionTop - 100) { 
             current = sectionId;
         }
     });
 
-    // Pindahkan class active berdasarkan section yang sedang terlihat
     navLinks.forEach(a => {
         a.classList.remove('active');
-        // Tautan harus memiliki href yang sama dengan ID section yang sedang aktif
         if (a.getAttribute('href').substring(1) === current) {
             a.classList.add('active');
         }
@@ -115,7 +99,6 @@ revealElements.forEach(el => {
   revealObserver.observe(el);
 });
 
-// ===== NAVBAR GLOW EFFECT =====
 const logo = document.querySelector('.logo');
 let glow = 0;
 setInterval(() => {
@@ -126,7 +109,6 @@ setInterval(() => {
   `;
 }, 100);
 
-// ===== BUTTON HOVER PULSE =====
 const exploreBtn = document.querySelector('.explore-btn');
 if (exploreBtn) {
   exploreBtn.addEventListener('mouseenter', () => {
